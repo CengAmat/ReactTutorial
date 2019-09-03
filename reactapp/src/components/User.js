@@ -47,7 +47,7 @@ class User extends Component {
           </div>
           {isVisible ? (
             <div className="card-body">
-              <p className="card-text">Maaş: {salary}</p>
+              <p className="card-text">Salary: {salary}</p>
               <p className="card-text">Department: {department}</p>
             </div>
           ) : null}
