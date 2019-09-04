@@ -5,6 +5,29 @@ const UserContext = React.createContext();
 
 export class UserProvider extends Component {
 
+    state = {
+        users: [
+            {
+                id: 1,
+                name: "Ahmet Zurnacı",
+                salary: "10000",
+                department: "Engineer"
+            },
+            {
+                id: 2,
+                name: "Peter Parker",
+                salary: "6000",
+                department: "Photographer"
+            },
+            {
+                id: 3,
+                name: "Harry Potter",
+                salry: "7000",
+                department: "Auror"
+            }
+        ]
+    }
+
     render() {
         return (
             <UserContext.Provider value={this.state}>
