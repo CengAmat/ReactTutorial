@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 
 class User extends Component {
   static defaultProps = {
-    name: "Bilgi Yok",
-    salary: "Bilgi Yok",
-    department: "Bilgi Yok"
+    name: "No Info",
+    salary: "No Info",
+    department: "No Info"
   };
 
   constructor(props) {
