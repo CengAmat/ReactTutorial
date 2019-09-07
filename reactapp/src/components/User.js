@@ -30,7 +30,7 @@ class User extends Component {
 
   render() {
     //Desctructing
-    const { name, department, salary } = this.props;
+    const { name, salary, department } = this.props;
     const { isVisible } = this.state;
 
     return (
@@ -72,7 +72,7 @@ User.propTypes = {
   name: PropTypes.string.isRequired,
   salary: PropTypes.string.isRequired,
   department: PropTypes.string.isRequired,
-  id: PropTypes.number.isRequired
+  id: PropTypes.string.isRequired
 };
 
 export default User;
