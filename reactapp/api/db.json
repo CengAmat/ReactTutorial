@@ -1,0 +1,22 @@
+{
+    "users": [
+        {
+            "id": "unique-1",
+            "name": "Ahmet Zurnacı",
+            "salary": "10000",
+            "department": "Engineer"
+        },
+        {
+            "id": "unique-2",
+            "name": "Peter Parker",
+            "salary": "6000",
+            "department": "Photographer"
+        },
+        {
+            "id": "unique-3",
+            "name": "Harry Potter",
+            "salary": "7000",
+            "department": "Auror"
+        }
+    ]
+}
