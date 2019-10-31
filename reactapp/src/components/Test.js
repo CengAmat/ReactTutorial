@@ -8,6 +8,7 @@ class Test extends Component {
         }
         console.log("Constructor");
     }
+
     componentDidMount() {
         console.log("componentDidMount");
         // Api requests
@@ -15,6 +16,16 @@ class Test extends Component {
             a: 20
         })
     }
+
+    componentDidUpdate = (prevProps, prevState) => {
+        console.log("Component Did Update");
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("Should Component Update");
+        return false;
+    }
+
 
     render() {
         console.log("Render");
