@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import Users from "./components/Users";
 import AddUser from "./components/AddUser";
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import NotFound from "./components/NotFound";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import "./App.css";
 
 const Home = () => {
@@ -23,13 +24,15 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          {/* <Route exact path="/" component={Home} />
-          <Route exact path="/about" component={About} /> */}
-
           <Navbar title="User App" />
           <hr />
-          <Route exact path="/" component={Users} />
-          <Route exact path="/add" component={AddUser} />
+
+          <Switch>
+            <Route exact path="/" component={Users} />
+            <Route exact path="/add" component={AddUser} />
+            <Route component={NotFound} />
+          </Switch>
+
         </div>
       </Router>
     );
