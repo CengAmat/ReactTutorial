@@ -23,7 +23,8 @@ class AddUser extends Component {
         visible: false,
         name: "",
         salary: "",
-        department: ""
+        department: "",
+        error: false
     }
 
     changeVisibility = (e) => {
@@ -31,6 +32,15 @@ class AddUser extends Component {
             visible: !this.state.visible
         })
     }
+
+    validateForm = () => {
+        const { name, department, salary } = this.state;
+        if (name === "" || department === "" || salary === "") {
+            return false;
+        }
+        return true;
+    }
+
     changeInput = (e) => {
         this.setState({
             [e.target.name]: e.target.value
@@ -45,6 +55,13 @@ class AddUser extends Component {
             department
         }
 
+        if (!this.validateForm()) {
+            this.setState({
+                error: true
+            })
+            return;
+        }
+
         const response = await axios.post("http://localhost:3004/users", newUser);
 
         dispatch({ type: "ADD_USER", payload: response.data });
@@ -53,7 +70,7 @@ class AddUser extends Component {
         this.props.history.push("/");
     }
     render() {
-        const { visible, name, salary, department } = this.state;
+        const { visible, name, salary, department, error } = this.state;
 
         return <UserConsumer>
             {
@@ -65,8 +82,15 @@ class AddUser extends Component {
                             <Animation pose={visible ? "visible" : "hidden"}>
                                 <div className="card">
                                     <div className="card-header">
-                                        <h4>Add User</h4>
+                                        <h4>Add User Form</h4>
                                         <div className="card-body">
+                                            {
+                                                error ?
+                                                    <div className="alert alert-danger">
+                                                        Please enter valid value
+                                                    </div>
+                                                    : null
+                                            }
                                             <form onSubmit={this.addUser.bind(this, dispatch)}>
                                                 <div className="form-group">
                                                     <label htmlFor="name">Name</label>

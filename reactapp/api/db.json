@@ -17,6 +17,12 @@
       "department": "Tech2",
       "salary": "10000",
       "id": 4
+    },
+    {
+      "name": "James Potter",
+      "salary": "7000",
+      "department": "Magic",
+      "id": 5
     }
   ]
 }
