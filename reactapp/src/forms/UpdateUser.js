@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import UserConsumer from "../context";
+import axios from "axios";
 
 class UpdateUser extends Component {
     state = {
@@ -14,10 +15,39 @@ class UpdateUser extends Component {
         })
     }
 
+    componentDidMount = async () => {
+        const { id } = this.props.match.params;
+
+        const response = await axios.get(`http://localhost:3004/users/${id}`);
+
+        const { name, department, salary } = response.data;
+        this.setState({
+            name,
+            department,
+            salary
+        })
+    }
+
+
     updateUser = async (dispatch, e) => {
         e.preventDefault();
 
+        // Update User
+        const { name, department, salary } = this.state;
+        const { id } = this.props.match.params;
+        const updatedUser = {
+            name,
+            department,
+            salary
+        };
+
+        const response = await axios.put(`http://localhost:3004/users/${id}`, updatedUser);
+        dispatch({ type: "UPDATE_USER", payload: response.data });
+
+        // Redirect
+        this.props.history.push("/");
     }
+
     render() {
         const { name, salary, department } = this.state;
         return <UserConsumer>
@@ -28,7 +58,7 @@ class UpdateUser extends Component {
                         <div className="col-md-8 mb-4">
                             <div className="card">
                                 <div className="card-header">
-                                    <h4>Update User</h4>
+                                    <h4>Update User Form</h4>
                                     <div className="card-body">
                                         <form onSubmit={this.updateUser.bind(this, dispatch)}>
                                             <div className="form-group">

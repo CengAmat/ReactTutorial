@@ -7,10 +7,16 @@
       "id": 1
     },
     {
-      "name": "Harry Potter",
-      "salary": "6000",
+      "name": "Harry James Potter",
       "department": "Magic",
+      "salary": "6000",
       "id": 3
+    },
+    {
+      "name": "Ahmet Zurnaci",
+      "department": "Tech2",
+      "salary": "10000",
+      "id": 4
     }
   ]
 }

@@ -48,6 +48,9 @@ class AddUser extends Component {
         const response = await axios.post("http://localhost:3004/users", newUser);
 
         dispatch({ type: "ADD_USER", payload: response.data });
+
+        // Redirect
+        this.props.history.push("/");
     }
     render() {
         const { visible, name, salary, department } = this.state;
