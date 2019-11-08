@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import UserConsumer from "../context";
 import axios from "axios";
+import { Link } from "react-router-dom"
 class User extends Component {
   static defaultProps = {
     name: "No Info",
@@ -34,7 +35,7 @@ class User extends Component {
 
   render() {
     //Desctructing
-    const { name, salary, department } = this.props;
+    const { id, name, salary, department } = this.props;
     const { isVisible } = this.state;
 
     return (
@@ -56,18 +57,18 @@ class User extends Component {
                       style={{ cursor: "pointer" }}
                     ></i>
                   </div>
-                  {isVisible ? (
+                  {isVisible ?
                     <div className="card-body">
                       <p className="card-text">Salary: {salary}</p>
                       <p className="card-text">Department: {department}</p>
-                    </div>
-                  ) : null}
+                      <Link to={`edit/${id}`} className="btn btn-dark btn-block">Update User</Link>
+                    </div> : null}
                 </div>
               </div>
             );
           }
         }
-      </UserConsumer>
+      </UserConsumer >
     )
   }
 }
