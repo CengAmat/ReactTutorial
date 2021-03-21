@@ -12,6 +12,7 @@ class App extends Component {
         <User name = "Harry Potter" department = "Magic" salary = "9000"/>
         <User name = "Peter Parker" department = "Photographer" salary = "8000"/>
         <User name = "Ahmet Zurnaci" department = "Developer" salary = "10000"/>
+        <User />
       </div>
     )
   }
