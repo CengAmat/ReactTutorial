@@ -25,12 +25,19 @@ class App extends Component {
       }
     ]
   }
+
+  deleteUser = (id) => {
+    this.setState({
+      users: this.state.users.filter(users => id !== users.id)
+    })
+  } 
+
   render() {
     return (
       <div className = "App">
         <Navbar title = "User App"/>
         <hr/>
-        <Users users = {this.state.users}/>
+        <Users deleteUser = {this.deleteUser} users = {this.state.users}/>
       </div>
     )
   }
