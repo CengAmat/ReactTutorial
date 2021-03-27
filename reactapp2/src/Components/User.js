@@ -3,14 +3,28 @@ import PropTypes from 'prop-types'
 
 
 class User extends Component {
+    state = {
+        isVisible: false
+    }
+
     static  defaultProps = {
         name: "No Info",
         department: "No Info",
         salary: "No Info"
     }
 
+    // constructor(props) {
+    //     super(props);
+
+    //     this.state = {
+    //         isVisible: false
+    //     }
+    // }
+
     render() {
+        // Destructuring
         const { name, department, salary } = this.props;
+        const { isVisible} = this.state;
         return (
             <div className = "col-md-8 mb-4">
                 <div className="card">
@@ -18,10 +32,13 @@ class User extends Component {
                         <h4 className = "d-inline">{name}</h4>
                         <i className = "fas fa-chess-knight" style = {{ cursor: "pointer"}}></i>
                     </div>
-                    <div className="card-body">
-                        <p className="card-text">Department : {department}</p>
-                        <p className="card-text">Salary : {salary}</p>
-                    </div>
+                    {
+                        isVisible ? 
+                        <div className="card-body">
+                            <p className="card-text">Department : {department}</p>
+                            <p className="card-text">Salary : {salary}</p>
+                        </div> : null
+                    }
                 </div>    
             </div>
         )
